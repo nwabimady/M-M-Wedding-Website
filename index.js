@@ -16,18 +16,28 @@ fetch('guests.json')
 let currentFocus = 0; // Index of the currently focused suggestion
 
 guestListInput.addEventListener('keyup', function(e) {
-  const inputValue = this.value.toLowerCase();
-  const inputLength = inputValue.length;
-  closeAllSuggestions(); // Close any previous suggestions
+  const searchTerm = this.value.toLowerCase();
+  const filteredGuests = allGuests.filter(guest => guest.toLowerCase().includes(searchTerm));
 
-  if (!inputValue) {
-    return; // No input, no suggestions
-  }
+  guestListUl.innerHTML = ''; // Clear previous results
 
-  const suggestions = allGuests.filter(guest => guest.toLowerCase().startsWith(inputValue));
+  // Only show dropdown if at least 3 characters are typed
+  if (searchTerm.length >= 3 && filteredGuests.length > 0) {
+    const suggestionList = document.createElement('ul');
+    suggestionList.classList.add('guest-list'); // Add the CSS class 'guest-list'
 
-  if (suggestions.length > 0) {
-    createSuggestionList(suggestions);
+    filteredGuests.forEach(guest => {
+      const suggestionItem = document.createElement('li');
+      suggestionItem.textContent = guest;
+      suggestionItem.addEventListener('click', function() {
+        guestListInput.value = this.textContent;
+        closeAllSuggestions(); // Close list on selection
+      });
+      suggestionList.appendChild(suggestionItem);
+    });
+    guestListUl.appendChild(suggestionList);
+  } else {
+    guestListUl.textContent = searchTerm.length < 3 ? 'Type at least 3 characters' : 'No matches found.';
   }
 });
 
@@ -53,25 +63,6 @@ guestListInput.addEventListener('keydown', function(e) {
     }
   }
 });
-
-function createSuggestionList(suggestions) {
-  const suggestionList = document.createElement('ul');
-  suggestionList.id = "suggestions";
-  currentFocus = 0;
-
-  suggestions.forEach(guest => {
-    const suggestionItem = document.createElement('li');
-    suggestionItem.textContent = guest;
-    suggestionItem.addEventListener('click', function() {
-      guestListInput.value = this.textContent;
-      currentFocus = 0;
-      closeAllSuggestions();
-    });
-    suggestionList.appendChild(suggestionItem);
-  });
-
-  guestListUl.parentNode.insertBefore(suggestionList, guestListUl.nextSibling); // Insert after the guest list element
-}
 
 function setActiveSuggestion(suggestionIndex) {
   const suggestionList = document.getElementById("suggestions");

@@ -49,24 +49,32 @@ h2 {
     font-size: 16px;
     width: 250px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-#guest-list { 
+#guest-list { /* Base styles for the guest list */
     font-family: "Alice", serif;
     color: #7e723c;
-    background-color: rgba(182, 255, 233, 0.8);
-}
-#guest-list.hover { 
-    font-family: "Alice", serif;
+    list-style: none; /* Remove default bullet points */
+    padding: 10px;
+    margin: 0;
+  }
+  
+  #guest-list li { /* Styles for individual list items */
+    margin-bottom: 5px;
+  }
+  
+  #guest-list li:hover { /* Hover effect for list items */
     color: #E1C340;
-}
-
+    cursor: pointer; /* Add a pointer cursor on hover */
+  }
 button {
     padding: 10px 20px;
-    background-color: #E1C340;
-    color: white;
-    border: none;
+    background-color: transparent;
+    color: #E1C340;
+    border: 1px solid #E1C340;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    font-family: "Alice", serif;
 }
