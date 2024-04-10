@@ -7,7 +7,7 @@ let allGuests = []; // Array to store all guests from JSON
 fetch('guests.json')
   .then(response => response.json())
   .then(data => {
-    allGuests = data.allDay.concat(data.ceremonyAndEvening, data.reception); // Combine all guest lists
+    allGuests = data.allDay.concat(data.ceremonyAndEvening, data.ceremony); // Combine all guest lists
   })
   .catch(error => {
     console.error('Error fetching guest list data:', error);
