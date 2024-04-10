@@ -1,12 +1,10 @@
 export default class InvitationManager {
-    constructor(guestListInput, guestListUl, submitButton) {
-      this.guestListInput = guestListInput;
-      this.guestListUl = guestListUl;
+    constructor(submitButton) {
       this.submitButton = submitButton;
       this.allGuests = [];
   
+      this.submitButton.addEventListener('click', this.handleButtonClick.bind(this));
       this.fetchGuestList();
-      this.addSubmitButtonClickListener();
     }
   
     fetchGuestList() {
@@ -20,12 +18,8 @@ export default class InvitationManager {
         });
     }
   
-    addSubmitButtonClickListener() {
-      this.submitButton.addEventListener('click', this.handleButtonClick.bind(this));
-    }
-  
     handleButtonClick() {
-      const guestName = this.guestListInput.value.trim();
+      const guestName = document.getElementById('guest-name').value.trim();
   
       if (!guestName) {
         alert('Please enter your name.');
@@ -40,29 +34,42 @@ export default class InvitationManager {
       }
   
       const guestData = this.allGuests.find(guest => guest.toLowerCase() === guestName.toLowerCase());
-      this.redirectToGuestPage(guestData.type);
+      this.showGuestPage(guestData.type);
     }
   
-    redirectToGuestPage(guestType) {
-      let redirectUrl;
+    showGuestPage(guestType) {
+      const rsvpDiv = document.getElementById('rsvp');
+      rsvpDiv.style.display = 'none'; // Hide RSVP div after successful submission
+  
+      const allDayDiv = document.getElementById('allDay');
+      const ceremonyAndEveningDiv = document.getElementById('ceremonyAndEvening');
+      const ceremonyDiv = document.getElementById('ceremony');
+  
+      this.hideAllGuestTypeDivs(); // Hide all divs initially
+  
       switch (guestType) {
         case 'All Day':
-          redirectUrl = 'allDay.html'; // Assuming allDay.html handles all day guests
+          allDayDiv.style.display = 'block';
           break;
         case 'Ceremony & Evening':
-          redirectUrl = 'ceremonyAndEvening.html'; // Assuming ceremonyAndEvening.html handles ceremony & evening guests
+          ceremonyAndEveningDiv.style.display = 'block';
           break;
         case 'Ceremony':
-          redirectUrl = 'ceremony.html'; // Assuming ceremony.html handles ceremony guests
+          ceremonyDiv.style.display = 'block';
           break;
         default:
           console.error('Guest data has invalid type:', guestType);
       }
+    }
   
-      if (redirectUrl) {
-        window.location.href = redirectUrl;
-        this.guestListInput.value = ''; // Clear input field after successful RSVP
-      }
+    hideAllGuestTypeDivs() {
+      const allDayDiv = document.getElementById('allDay');
+      const ceremonyAndEveningDiv = document.getElementById('ceremonyAndEvening');
+      const ceremonyDiv = document.getElementById('ceremony');
+  
+      allDayDiv.style.display = 'none';
+      ceremonyAndEveningDiv.style.display = 'none';
+      ceremonyDiv.style.display = 'none';
     }
   }
   

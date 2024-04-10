@@ -4,7 +4,7 @@ body {
     margin: 0;
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
-    background-image: url("Assets/Teal paint background.png"); /* Replace with your actual filename */
+    background-image: url("./dist/assets/Teal\ paint\ background-BX1Gr-Rw.png"); /* Replace with your actual filename */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
