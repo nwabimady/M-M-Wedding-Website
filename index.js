@@ -2,6 +2,15 @@ const guestListInput = document.getElementById('guest-name');
 const guestListUl = document.getElementById('guest-list');
 const submitButton = document.getElementById('submit-button');
 
+const allDayDiv = document.getElementById('allDay');
+const ceremonyAndEveningDiv = document.getElementById('ceremonyAndEvening');
+const ceremonyDiv = document.getElementById('ceremony');
+
+// Initially hide all divs
+allDayDiv.style.display = 'none';
+ceremonyAndEveningDiv.style.display = 'none';
+ceremonyDiv.style.display = 'none';
+
 let allGuests = []; // Array to store all guests from JSON
 
 fetch('guests.json')
