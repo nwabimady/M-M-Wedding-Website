@@ -12,7 +12,7 @@ ceremonyDiv.style.display = 'none';
 
 let allGuests = [];
 
-fetch('guests.json')
+fetch('/guests.json')
   .then(response => response.json())
   .then(data => {
     allGuests = data.allDay.concat(data.evening, data.ceremony); // Combine all guest lists
