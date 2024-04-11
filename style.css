@@ -31,6 +31,12 @@ h2 {
     font-size: 2em;
     margin-bottom: 20px;
 }
+h3 {
+    font-family: 'Brittany Signature', sans-serif;
+    color: #E1C340;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
 
 .alice-regular {
     font-family: "Alice", serif;

@@ -25,7 +25,7 @@ let currentFocus = 0; // Index of the currently focused suggestion
 
 guestListInput.addEventListener('keyup', function(e) {
   const searchTerm = this.value.toLowerCase();
-  const filteredGuests = allGuests.filter(guest => guest.toLowerCase().includes(searchTerm));
+  const filteredGuests = allGuests.filter(guest => guest.name.toLowerCase().includes(searchTerm));
 
   guestListUl.innerHTML = ''; // Clear previous results
 
@@ -36,7 +36,7 @@ guestListInput.addEventListener('keyup', function(e) {
 
     filteredGuests.forEach(guest => {
       const suggestionItem = document.createElement('li');
-      suggestionItem.textContent = guest;
+      suggestionItem.textContent = guest.name;
       suggestionItem.addEventListener('click', function() {
         guestListInput.value = this.textContent;
         closeAllSuggestions(); // Close list on selection
@@ -99,38 +99,49 @@ class GuestManager {
   }
 
   verifyGuest(guestName) {
-    return this.allGuests.some(guest => guest.toLowerCase() === guestName.toLowerCase());
+    const foundGuest = this.allGuests.find(guest => guest.name.toLowerCase() === guestName.toLowerCase());
+    console.log("Found Guest:", foundGuest);
+    return !!foundGuest; // Return true if a guest is found
   }
 
   getGuestType(guestName) {
-    return this.allGuests.find(guest => guest.toLowerCase() === guestName.toLowerCase())?.type || 'ceremony';
+    const foundGuest = this.allGuests.find(guest => guest.name.toLowerCase() === guestName.toLowerCase());
+    return foundGuest?.type; // Return type if found, otherwise undefined
+  }
+  
+
+  getCeremonyAndEveningGuestType(guestName) {
+    const foundGuest = this.allGuests.find(guest => guest.name.toLowerCase() === guestName.toLowerCase());
+    return foundGuest?.type || 'Ceremony & Evening';
+  }
+
+  getCeremonyGuestType(guestName) {
+    const foundGuest = this.allGuests.find(guest => guest.name.toLowerCase() === guestName.toLowerCase());
+    return foundGuest?.type || 'Ceremony';
   }
 
   showGuestInfo(guestType) {
     const rsvpDiv = document.getElementById('rsvp');
     rsvpDiv.style.display = 'none'; // Hide RSVP div after successful submission
   
-    const allDayDiv = document.getElementById('allDay');
-    const ceremonyAndEveningDiv = document.getElementById('ceremonyAndEvening');
-    const ceremonyDiv = document.getElementById('ceremony');
-  
     this.hideAllGuestTypeDivs(); // Hide all divs initially
   
-    switch (guestType) {
-      case 'All Day':
-        allDayDiv.style.display = 'block';
-        break;
-      case 'Ceremony & Evening':
-        ceremonyAndEveningDiv.style.display = 'block';
-        break;
-      case 'Ceremony':
-        ceremonyDiv.style.display = 'block';
-        break;
-      default:
-        console.error('Guest data has invalid type:', guestType?.type);
-        
+    const lowerCaseGuestType = guestType?.toLowerCase();
+  
+    if (lowerCaseGuestType === 'ceremony') {
+      ceremonyDiv.style.display = 'block';
+    } else if (lowerCaseGuestType === 'ceremony & evening') {
+      ceremonyAndEveningDiv.style.display = 'block'; // Show evening information (optional)
+    } else if (lowerCaseGuestType === 'all day') {
+      allDayDiv.style.display = 'block';
+    } else {
+      console.error('Guest data has invalid type:', guestType);
     }
   }
+  
+  
+  
+  
   
   hideAllGuestTypeDivs() {
     const allDayDiv = document.getElementById('allDay');
@@ -142,6 +153,7 @@ class GuestManager {
     ceremonyDiv.style.display = 'none';
   }
 }
+
 submitButton.addEventListener('click', function() {
   const guestName = guestListInput.value.trim();
 
