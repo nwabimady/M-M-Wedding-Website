@@ -1,10 +1,10 @@
 body {
-    display: flex; /* Make the body a flex container */
-    min-height: 100vh; /* Set minimum body height for vertical centering */
+    display: flex;
+    min-height: 100vh;
     margin: 0;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    background-image: url("./src/Teal\ paint\ background.png"); /* Replace with your actual filename */
+    justify-content: center; 
+    align-items: center; 
+    background-image: url("./Teal.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
