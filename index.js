@@ -2,12 +2,12 @@ const guestListInput = document.getElementById('guest-name');
 const guestListUl = document.getElementById('guest-list');
 const submitButton = document.getElementById('submit-button');
 const allDayDiv = document.getElementById('allDay');
-const ceremonyAndEveningDiv = document.getElementById('ceremonyAndEvening');
+const eveningDiv = document.getElementById('evening');
 const ceremonyDiv = document.getElementById('ceremony');
 
 // Initially hide all divs
 allDayDiv.style.display = 'none';
-ceremonyAndEveningDiv.style.display = 'none';
+eveningDiv.style.display = 'none';
 ceremonyDiv.style.display = 'none';
 
 let allGuests = []; // Array to store all guests from JSON
@@ -15,7 +15,7 @@ let allGuests = []; // Array to store all guests from JSON
 fetch('guests.json')
   .then(response => response.json())
   .then(data => {
-    allGuests = data.allDay.concat(data.ceremonyAndEvening, data.ceremony); // Combine all guest lists
+    allGuests = data.allDay.concat(data.evening, data.ceremony); // Combine all guest lists
   })
   .catch(error => {
     console.error('Error fetching guest list data:', error);
@@ -130,26 +130,22 @@ class GuestManager {
   
     if (lowerCaseGuestType === 'ceremony') {
       ceremonyDiv.style.display = 'block';
-    } else if (lowerCaseGuestType === 'ceremony & evening') {
-      ceremonyAndEveningDiv.style.display = 'block'; // Show evening information (optional)
+    } else if (lowerCaseGuestType === 'evening') {
+      eveningDiv.style.display = 'block'; // Show evening information (optional)
     } else if (lowerCaseGuestType === 'all day') {
       allDayDiv.style.display = 'block';
     } else {
       console.error('Guest data has invalid type:', guestType);
     }
   }
-  
-  
-  
-  
-  
+    
   hideAllGuestTypeDivs() {
     const allDayDiv = document.getElementById('allDay');
-    const ceremonyAndEveningDiv = document.getElementById('ceremonyAndEvening');
+    const eveningDiv = document.getElementById('evening');
     const ceremonyDiv = document.getElementById('ceremony');
 
     allDayDiv.style.display = 'none';
-    ceremonyAndEveningDiv.style.display = 'none';
+    eveningDiv.style.display = 'none';
     ceremonyDiv.style.display = 'none';
   }
 }
