@@ -8,6 +8,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "create-vite": "^5.2.3"
+    "create-vite": "^5.2.3",
+    "rollup-plugin-copy": "^3.5.0"
   }
 }
