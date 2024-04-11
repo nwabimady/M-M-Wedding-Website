@@ -1,3 +1,5 @@
+import guestsData from './guests.json';
+
 const guestListInput = document.getElementById('guest-name');
 const guestListUl = document.getElementById('guest-list');
 const submitButton = document.getElementById('submit-button');
