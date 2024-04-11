@@ -10,7 +10,7 @@ allDayDiv.style.display = 'none';
 eveningDiv.style.display = 'none';
 ceremonyDiv.style.display = 'none';
 
-let allGuests = []; // Array to store all guests from JSON
+let allGuests = [];
 
 fetch('guests.json')
   .then(response => response.json())
