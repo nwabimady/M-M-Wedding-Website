@@ -10,6 +10,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    margin: 5rem;
 }
 
 .container {
@@ -29,7 +30,7 @@ body {
 
     body {
         background-color: rgba(13, 21, 66);
-        background-image: linear-gradient(rgba(13, 21, 66, 0.25), rgba(13, 21, 66, 0.25)), url("./Teal.png");
+        background-image: linear-gradient(rgba(13, 21, 66, 0.3), rgba(13, 21, 66, 0.6)), url("./Teal.png");
     }
     
     h1 {
@@ -66,12 +67,14 @@ h2 {
     color: #E1C340;
     font-size: 2em;
     margin-bottom: 20px;
+    text-shadow: 1px 1px 1px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66);
 }
 h3 {
     font-family: 'Brittany Signature', sans-serif;
     color: #E1C340;
     font-size: 1.5em;
     margin-bottom: 20px;
+    text-shadow: 1px 1px 1px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66);
 }
 
 .alice-regular {
@@ -80,6 +83,7 @@ h3 {
     font-style: normal;
     color: #E1C340;
     margin-bottom: 20px;
+    text-shadow: 1px 1px 1px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66);
 }
 
 #guest-name {
@@ -119,9 +123,11 @@ button {
     cursor: pointer;
     font-size: 16px;
     font-family: "Alice", serif;
+    text-shadow: 1px 1px 1px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66);
 }
 button:hover {
     color: #00d9ff;
     border: 1px solid #00d9ff;
     transition: 0.2s;
+    
 }
