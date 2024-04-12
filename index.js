@@ -1,14 +1,18 @@
+import FindChildren from "./classes/FindChildren";
+
 const guestListInput = document.getElementById('guest-name');
 const guestListUl = document.getElementById('guest-list');
 const submitButton = document.getElementById('submit-button');
 const allDayDiv = document.getElementById('allDay');
 const eveningDiv = document.getElementById('evening');
 const ceremonyDiv = document.getElementById('ceremony');
+const childrenchecklistDiv = document.getElementById('children-checklist');
 
 // Initially hide all divs
 allDayDiv.style.display = 'none';
 eveningDiv.style.display = 'none';
 ceremonyDiv.style.display = 'none';
+childrenchecklistDiv.style.display = 'none';
 
 let allGuests = [];
 
@@ -96,6 +100,7 @@ function closeAllSuggestions() {
 class GuestManager {
   constructor(allGuests) {
     this.allGuests = allGuests;
+    this.findChildren = new FindChildren(allGuests);
   }
 
   verifyGuest(guestName) {
@@ -123,11 +128,11 @@ class GuestManager {
   showGuestInfo(guestType) {
     const rsvpDiv = document.getElementById('rsvp');
     rsvpDiv.style.display = 'none'; // Hide RSVP div after successful submission
-  
+
     this.hideAllGuestTypeDivs(); // Hide all divs initially
-  
+
     const lowerCaseGuestType = guestType?.toLowerCase();
-  
+
     if (lowerCaseGuestType === 'ceremony') {
       ceremonyDiv.style.display = 'block';
     } else if (lowerCaseGuestType === 'evening') {
@@ -137,8 +142,22 @@ class GuestManager {
     } else {
       console.error('Guest data has invalid type:', guestType);
     }
+
+    const guestName = guestListInput.value.trim();
+    const foundGuest = this.allGuests.find(guest => guest.name.toLowerCase() === guestName.toLowerCase());
+
+    if (foundGuest) {
+      const children = this.findChildren.findChildrenForGuest(guestName);
+
+      // Show/Hide Checklist Based on Children Existence
+      const childrenchecklistDiv = document.getElementById('children-checklist');
+      childrenchecklistDiv.style.display = children.length > 0 ? 'block' : 'none';
+
+      // Optionally call showGuestChildrenInfo to display children's names in a separate element
+      this.findChildren.showGuestChildrenInfo(guestName, 'children-names'); // Replace 'children-names' with your target element ID
+    }
   }
-    
+
   hideAllGuestTypeDivs() {
     const allDayDiv = document.getElementById('allDay');
     const eveningDiv = document.getElementById('evening');
@@ -147,6 +166,10 @@ class GuestManager {
     allDayDiv.style.display = 'none';
     eveningDiv.style.display = 'none';
     ceremonyDiv.style.display = 'none';
+
+    // Hide childrenchecklistDiv as well
+    const childrenchecklistDiv = document.getElementById('children-checklist');
+    childrenchecklistDiv.style.display = 'none';
   }
 }
 
@@ -167,3 +190,4 @@ submitButton.addEventListener('click', function() {
     alert('Sorry, guest not found.');
   }
 });
+
