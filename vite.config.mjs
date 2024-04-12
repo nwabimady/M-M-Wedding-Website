@@ -5,9 +5,10 @@ export default defineConfig({
   plugins: [
     copy({
       targets: [
-        { src: './guests.json', dest: 'dist/assets/' }
+        { src: './guests.json', dest: 'dist/assets/' },
+        { src: './FindChildren.js', dest: 'dist/assets/' }
       ],
-      hook: 'build'
+      hook: 'writeBundle'
     })
   ],
   build: {

@@ -1,4 +1,4 @@
-import FindChildren from "./classes/FindChildren";
+import FindChildren from "./FindChildren";
 
 const guestListInput = document.getElementById('guest-name');
 const guestListUl = document.getElementById('guest-list');
