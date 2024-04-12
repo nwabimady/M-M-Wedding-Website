@@ -43,7 +43,7 @@
       <button id="submit-button">RSVP</button>
     </div>
 
-    <div id="allDay" class="container">
+    <div id="allDay" class="container" style="display: none">
       <div id="welcome">
         <p class="alice-regular">TOGETHER WITH THEIR FAMILIES</p>
         <h1>Mauricio Jorge Artale <br />&<br />Megan Ruth Joyce</h1>
@@ -60,8 +60,12 @@
       <h3>All Day Guest</h3>
       <p class="alice-regular">
         Thank you for RSVP'ing. <br />We are so happy that you can join us!<br />
-        <br />Ceremony: 1pm Port St Mary Church <br />Reception: from 3pm King
-        Williams College <br />Evening celebration from 6.3opm
+      <br /> 
+        <div id="venues" class="alice-regular">
+          <input id="check-ceremony" type="checkbox">Ceremony: 1pm Port St Mary Church <br />
+          <input id="check-reception" type="checkbox">Reception: from 3pm King Williams College <br />
+          <input id="check-evening" type="checkbox">Evening celebration from 6.3opm
+        </div>
       </p>
 
       <div id="gifts">
@@ -98,12 +102,14 @@
       <div id="children-checklist" style="margin: 1rem;" >
         <h3>Children</h3>
         <div class="alice-regular">
-          <label for="children-attending">Attending children:</label>
-          <br/>
-          <span id="children-names">
+          <span id="children-names"></span>
             <br/>
-          </span>
-        </div>
+            <label for="children-attending">Will these children be attending?</label>
+            <br/>
+            <input id="children-yes" type="checkbox"> Yes <br/>
+            <input id="children-no" type="checkbox"> No 
+        
+          </div>
       </div>    
 
       <div id="final" style="margin: 1.5rem;">
@@ -120,7 +126,7 @@
       </div>
     </div>
 
-    <div id="evening" class="container">
+    <div id="evening" class="container" style="display: none">
       <div id="welcome">
         <p class="alice-regular">TOGETHER WITH THEIR FAMILIES</p>
         <h1>Mauricio Jorge Artale <br />&<br />Megan Ruth Joyce</h1>
@@ -136,8 +142,12 @@
       <h3>Ceremony & Evening Guest</h3>
       <p class="alice-regular">
         Thank you for RSVP'ing. <br />We are so happy that you can join us!<br />
-        <br />Ceremony: 1pm Port St Mary Church <br />Evening celebration from
-        6.3opm
+        <br />
+        
+        <div id="venues" class="alice-regular">
+          <input id="check-ceremony" type="checkbox">Ceremony: 1pm Port St Mary Church <br />
+          <input id="check-evening" type="checkbox">Evening celebration from 6.3opm
+        </div>
       </p>
 
       <div id="gifts">
@@ -170,7 +180,7 @@
       </div>
     </div>
 
-    <div id="ceremony" class="container">
+    <div id="ceremony" class="container" style="display: none">
       <div id="welcome">
         <p class="alice-regular">TOGETHER WITH THEIR FAMILIES</p>
         <h1>Mauricio Jorge Artale <br />&<br />Megan Ruth Joyce</h1>
@@ -186,7 +196,9 @@
       <h3>Ceremony Guest</h3>
       <p class="alice-regular">
         Thank you for RSVP'ing. <br />We are so happy that you can join us!<br />
-        <br />Ceremony: 1pm Port St Mary Church
+        <div id="venues" class="alice-regular">
+          <input id="check-ceremony" type="checkbox">Ceremony: 1pm Port St Mary Church <br />
+        </div>
       </p>
       <div id="gifts">
         <h3>Gifts</h3>
