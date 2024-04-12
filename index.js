@@ -224,3 +224,23 @@ class FindChildren {
     }
   }
 }
+
+class InvitationThanks {
+  constructor() {
+    this.thanksDiv = document.getElementById('thanks');
+    this.rsvpButton = document.getElementById('rsvp-button');
+    this.otherDivs = document.querySelectorAll('.container:not(#thanks)'); // Selects all containers except thanks
+    this.addClickEventListener();
+  }
+
+  addClickEventListener() {
+    this.rsvpButton.addEventListener('click', this.showThanks.bind(this));
+  }
+
+  showThanks() {
+    this.thanksDiv.style.display = 'block';
+    this.otherDivs.forEach(div => div.style.display = 'none');
+  }
+}
+
+new InvitationThanks();
