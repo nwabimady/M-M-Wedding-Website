@@ -20,6 +20,26 @@ body {
     margin: auto;
 }
 
+@media (max-width: 768px) {
+    .container {
+        background-color: transparent;
+        border: none;
+        margin: 0;
+    }
+
+    body {
+        background-color: rgba(13, 21, 66);
+        background-image: linear-gradient(rgba(13, 21, 66, 0.25), rgba(13, 21, 66, 0.25)), url("./Teal.png");
+    }
+    
+    h1 {
+        font-family: 'Brittany Signature', sans-serif;
+        color: #E1C340;
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+}
+
 .input {
     text-align:center;
     font-family: "Alice", serif;
@@ -38,7 +58,7 @@ h1 {
     color: #E1C340;
     font-size: 3em;
     margin-bottom: 20px;
-    text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black;
+    text-shadow: 1px 1px 1px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66);
 }
 
 h2 {
