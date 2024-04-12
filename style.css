@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/brittany-signature');
+
 body {
     display: flex;
     min-height: 100vh;
@@ -72,21 +74,21 @@ h3 {
     text-align: center;
 }
 
-#guest-list { /* Base styles for the guest list */
+#guest-list {
     font-family: "Alice", serif;
     color: #7e723c;
-    list-style: none; /* Remove default bullet points */
+    list-style: none;
     padding: 10px;
     margin: 0;
   }
   
-  #guest-list li { /* Styles for individual list items */
+  #guest-list li {
     margin-bottom: 5px;
   }
   
-  #guest-list li:hover { /* Hover effect for list items */
+  #guest-list li:hover { 
     color: #E1C340;
-    cursor: pointer; /* Add a pointer cursor on hover */
+    cursor: pointer;
   }
 button {
     padding: 10px 20px;
