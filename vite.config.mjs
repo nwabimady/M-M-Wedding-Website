@@ -4,6 +4,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsInclude: ['guests.json'],
+    emptyOutDir: false,
   },
   dev: {
     server: {
