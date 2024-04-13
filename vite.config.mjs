@@ -6,9 +6,8 @@ export default defineConfig({
     copy({
       targets: [
         { src: './guests.json', dest: 'dist/assets/' },
-        { src: './FindChildren.js', dest: 'dist/assets/' }
       ],
-      hook: 'writeBundle'
+      hook: 'build'
     })
   ],
   build: {
