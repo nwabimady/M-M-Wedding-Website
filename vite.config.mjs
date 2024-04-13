@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import copy from 'rollup-plugin-copy'
 
 export default defineConfig({
-  base: '/M-M-Wedding-website/',
   plugins: [
     copy({
       targets: [
@@ -13,6 +12,14 @@ export default defineConfig({
   ],
   build: {
     outDir: 'dist',
+    rollupOptions: {
+      input: {
+        main: './index.js',
+        class1: './InvitationThanks.js',
+        class2: './FindChildren.js',
+        class3: './GuestManager.js'
+      }
+    }
   },
   dev: {
     server: {
