@@ -5,10 +5,11 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build && node -e \"require('fs-extra').writeFileSync('./dist/.nojekyll', '')\""
   },
   "dependencies": {
     "create-vite": "^5.2.3",
+    "fs-extra": "^11.2.0",
     "next": "^14.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
