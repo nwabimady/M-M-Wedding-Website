@@ -1,6 +1,6 @@
-import InvitationThanks from "./classes/InvitationThanks";
-import FindChildren from "./classes/FindChildren";
-import GuestManager from "./classes/GuestManager";
+import InvitationThanks from "./InvitationThanks";
+import FindChildren from "./FindChildren";
+import GuestManager from "./GuestManager";
 
 
 const guestListInput = document.getElementById('guest-name');
