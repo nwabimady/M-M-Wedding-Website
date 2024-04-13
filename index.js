@@ -1,6 +1,5 @@
 import InvitationThanks from "./classes/InvitationThanks";
 import FindChildren from "./classes/FindChildren";
-import RsvpManager from "./classes/RsvpManager";
 import GuestManager from "./classes/GuestManager";
 
 const guestListInput = document.getElementById('guest-name');
@@ -122,5 +121,3 @@ submitButton.addEventListener('click', function() {
 new FindChildren();
 
 new InvitationThanks();
-
-new RsvpManager();
