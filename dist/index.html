@@ -14,8 +14,8 @@
       href="https://fonts.cdnfonts.com/css/brittany-signature"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/assets/index-DZtaNl3n.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CR9jOVUn.css">
+    <script type="module" crossorigin src="/assets/index-fEqJOUvz.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CGKtXfHk.css">
   </head>
   <body>
     <div id="rsvp" class="container">
@@ -232,6 +232,81 @@
         <p class="alice-regular" style="font-size:large">Thank you for your</p>
         <h3>RSVP</h3>
       </div>
-
+    </div>
+
+    <div id="rsvp-list" class="container"  style="display: none">
+      <div class="alice-regular" >
+        <p style="font-size:xx-large">RSVP List Table:</p>
+      </div>
+      
+      <table id="all-day-table" class="rsvp-table"><h3>All day table</h3>
+        <thead>
+          <tr>
+            <th>Guest Name</th>
+            <th>Type</th>
+            <th>Attending Children</th>
+            <th>Dietary Requirements</th>
+            <th></th> </tr>
+          </tr>
+        </thead>
+        <tbody id="all-day-table-body">
+          <tr class="example-row">
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>&nbsp;</td> </tr>
+        </tbody>
+      </table>
+
+      <table id="evening-table" class="rsvp-table"> <h3>Ceremony & Evening table</h3>
+        <thead>
+          <tr>
+            <th>Guest Name</th>
+            <th>Type</th>
+            <th>Attending Children</th>
+            <th>Dietary Requirements</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="evening-table-body">
+          <tr class="example-row">
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>&nbsp;</td> </tr>
+        </tbody>  
+      </table>
+
+      <table id="ceremony-table" class="rsvp-table"><h3>Ceremony table</h3>
+        <thead>
+          <tr>
+            <th>Guest Name</th>
+            <th>Type</th>
+            <th>Attending Children</th>
+            <th>Dietary Requirements</th>
+            <th></th> </tr>
+          </tr>
+        </thead>
+        <tbody id="ceremony-table-body">
+          <tr class="example-row">
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>&nbsp;</td> </tr>
+        </tbody>  
+      </table>
+
+        <div id="totals">
+          <h2 class="alice-regular" style="font-size: x-large;">Totals</h2>
+          <p class="alice-regular">Families: <span id="total-guests">0</span></p>
+          <p class="alice-regular">Attending Children: <span id="total-attending-children">0</span></p>
+        </div>
+    </div>
+
+      </div>
+    </div>
   </body>
 </html>
