@@ -1,81 +1,80 @@
 class RsvpManager {
-    constructor() {
-        // DOM element references
-        this.guestNameInput = document.getElementById('guest-name');
-        this.passwordInput = document.getElementById('password-input'); // New element for password
-        this.submitButton = document.getElementById('submit-button');
-        this.rsvpListDiv = document.getElementById('rsvp-list'); // Reference to RSVP list container
-    
-        // RSVP data storage
-        this.rsvpData = [];
-    
-        // Table references (object for easier management)
-        this.tables = {
-          'all-day': document.getElementById('all-day-table'),
-          'ceremony': document.getElementById('ceremony-table'),
-          'evening': document.getElementById('evening-table'),
-        };
-    
-        // Object to store totals for guests and attending children
-        this.totalCounts = { guests: 0, attendingChildren: 0 };
-    
-        // Event listener for submit button
-        this.submitButton.addEventListener('click', this.handleRsvp.bind(this));
-      }
-    
-      async handleRsvp() {
-        const guestName = this.guestNameInput.value.trim();
-        const password = this.passwordInput.value.trim(); // Get password value
-    
-        // Check for admin or regular guest
-        if (guestName.toLowerCase() === 'admin') {
-          const isAdmin = await this.verifyAdmin(password); // Verify admin with password
-          if (isAdmin) {
-            this.showRsvpManager();
-            return; // Skip further processing for verified admin
-          } else {
-            alert('Invalid password for admin login.');
-            return; // Prevent further processing if password is wrong
-          }
-        }
-      }
-    
-      async verifyAdmin(password) {
-        try {
-          const response = await fetch('guests.json'); // Fetch guests data
-          const guestsData = await response.json();
-    
-          if (guestsData && guestsData.admin && guestsData.admin.length > 0) {
-            const admin = guestsData.admin[0];
-            return admin.password === password; // Check password against fetched data
-          } else {
-            console.error('Error fetching or processing admin data from guests.json');
-            return false;
-          }
-        } catch (error) {
-          console.error('Error fetching guests.json:', error);
-          return false;
-        }
-      }
+  constructor() {
+    // DOM element references
+    this.guestNameInput = document.getElementById('guest-name');
+    this.rsvpListDiv = document.getElementById('rsvp-list');
+    this.rsvpDiv = document.getElementById('rsvp');
 
-      showRsvpManager() {
-        // Hide any other divs
-        const allDivs = document.querySelectorAll('div');
-        for (const div of allDivs) {
-          if (div !== this.rsvpListDiv) {
-            div.style.display = 'none';
-          }
-        }
-    
-        // Show RSVP list div
-        this.rsvpListDiv.style.display = 'block';
-    
-        // Override fetch guests.json on submit for admin
-        this.submitButton.addEventListener('click', () => {
-          // Implement logic to handle admin submission (e.g., edit data, etc.)
-          console.log('Admin submission'); // Placeholder for admin functionality
-        });
+    // Event listener for guest name input
+    this.guestNameInput.addEventListener('keyup', this.handleGuestNameInput.bind(this));
+  }
+
+  handleGuestNameInput(event) {
+    const guestName = event.target.value.trim();
+    if (guestName === 'Admin') {
+      this.rsvpListDiv.style.display = 'block';
+      this.rsvpDiv.style.display = 'none';
+    } else {
+      this.rsvpListDiv.style.display = 'none';
+      this.rsvpDiv.style.display = 'block';
+    }
+  }
+
+  async handleRsvp() {
+    const guestName = this.guestNameInput.value.trim();
+    const password = this.passwordInput.value.trim(); // Get password value
+
+    // Check for admin or regular guest
+    if (guestName.toLowerCase() === "admin") {
+      const isAdmin = await this.verifyAdmin(password); // Verify admin with password
+      if (isAdmin) {
+        this.showRsvpManager();
+        return; // Skip further processing for verified admin
+      } else {
+        alert("Invalid password for admin login.");
+        return; // Prevent further processing if password is wrong
       }
+    }
+  }
+
+  async verifyAdmin(password) {
+    try {
+      const response = await fetch("guests.json"); // Fetch guests data
+      const guestsData = await response.json();
+
+      if (guestsData && guestsData.admin && guestsData.admin.length > 0) {
+        const admin = guestsData.admin[0];
+        return admin.password === password; // Check password against fetched data
+      } else {
+        console.error(
+          "Error fetching or processing admin data from guests.json"
+        );
+        return false;
+      }
+    } catch (error) {
+      console.error("Error fetching guests.json:", error);
+      return false;
+    }
+  }
+
+  showRsvpManager() {
+    // Hide any other divs
+    const allDivs = document.querySelectorAll("div");
+    for (const div of allDivs) {
+      if (div !== this.rsvpListDiv) {
+        div.style.display = "none";
+      }
+    }
+
+    // Show RSVP list div
+    this.rsvpListDiv.style.display = "block";
+
+    // Override fetch guests.json on submit for admin
+    this.submitButton.addEventListener("click", () => {
+      // Implement logic to handle admin submission (e.g., edit data, etc.)
+      console.log("Admin submission"); // Placeholder for admin functionality
+    });
+  }
 
   handleRsvp() {
     const guestName = this.guestNameInput.value.trim();
@@ -114,13 +113,13 @@ class RsvpManager {
 
   populateTable(rsvpData, tableId) {
     const tableBody = document.getElementById(`${tableId}-body`);
-    const tableRow = document.createElement('tr');
+    const tableRow = document.createElement("tr");
 
     // Create table cells and populate with data
     tableRow.innerHTML = `
       <td>${rsvpData.guestName}</td>
       <td>${rsvpData.guestType}</td>
-      <td>${rsvpData.attendingChildren ? 'Yes' : 'No'}</td>
+      <td>${rsvpData.attendingChildren ? "Yes" : "No"}</td>
       <td>${rsvpData.dietaryRequirements}</td>
       <td>
         <input type="checkbox" class="delete-checkbox">
@@ -131,9 +130,11 @@ class RsvpManager {
     tableBody.appendChild(tableRow);
 
     // Add click event listener for the label (to simulate checkbox click)
-    tableRow.querySelector('.delete-checkbox + label').addEventListener('click', () => {
-      this.deleteRsvpEntry(rsvpData, tableId);
-    });
+    tableRow
+      .querySelector(".delete-checkbox + label")
+      .addEventListener("click", () => {
+        this.deleteRsvpEntry(rsvpData, tableId);
+      });
   }
 
   clearGuestInput() {
