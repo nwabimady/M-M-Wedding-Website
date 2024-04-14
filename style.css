@@ -133,8 +133,23 @@ button:hover {
     
 }
 
+.delete-guests {
+    color: #000000;
+    border: 1px solid #000000;
+    background-color: #E1C340;
+    border-radius: 5px;
+    cursor: pointer;
+    text-shadow: none;
+}
+.delete-guests:hover {
+    color: #00d9ff;
+    border: 1px solid #00d9ff;
+    background-color: transparent;
+    transition: 0.2s;
+}
+
 .rsvp-table {
-    /* Table styles */
+    display: flexbox;
     border-collapse: collapse;
     width: 100%; /* Adjust width as needed */
     margin-bottom: 1rem;
@@ -169,11 +184,6 @@ button:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Center checkbox within cell */
-    opacity: 0; /* Hide checkbox initially */
-  }
-  
-  .rsvp-table tbody td:last-child:hover input[type="checkbox"] {
-    opacity: 1; /* Show checkbox on hover */
   }
   
   .rsvp-table tbody td:last-child input[type="checkbox"]:checked + label {

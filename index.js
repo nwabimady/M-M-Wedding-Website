@@ -1,6 +1,7 @@
 import InvitationThanks from "./classes/InvitationThanks";
 import FindChildren from "./classes/FindChildren";
 import GuestManager from "./classes/GuestManager";
+import RsvpManager from "./classes/RsvpManager";
 
 const guestListInput = document.getElementById('guest-name');
 const guestListUl = document.getElementById('guest-list');
@@ -20,7 +21,9 @@ let allGuests = [];
 fetch('guests.json')
   .then(response => response.json())
   .then(data => {
-    allGuests = data.allDay.concat(data.evening, data.ceremony); // Combine all guest lists
+    allGuests = data.allDay.concat(data.evening, data.ceremony);
+    const rsvpManager = new RsvpManager(); // Create a RsvpManager instance
+    allGuests.forEach(guest => rsvpManager.populateTable(guest, 'rsvp-table'));
   })
   .catch(error => {
     console.error('Error fetching guest list data:', error);
@@ -121,5 +124,3 @@ submitButton.addEventListener('click', function() {
 new FindChildren();
 
 new InvitationThanks();
-
-new RsvpManager();

@@ -78,28 +78,30 @@ class RsvpManager {
 
   handleRsvp() {
     const guestName = this.guestNameInput.value.trim();
-
+  
     // Limit to 1 guest per submission and prevent resubmission
     if (!guestName || this.rsvpData.length > 0) {
       return;
     }
-
+  
     // Collect RSVP data
     const rsvpData = this.collectRsvpData();
-    this.rsvpData.push(rsvpData); // Add data to array
-
-    // Determine selected table ID (implementation needed)
+    rsvpData.rsvpStatus = 'Yes';
+    this.rsvpData.push(rsvpData);
+  
     const tableId = this.getSelectedTable();
-
-    // Populate the table with the RSVP data
+  
     this.populateTable(rsvpData, tableId);
-
-    // Clear guest input field
+  
     this.clearGuestInput();
-
-    // Update totals
+  
     this.updateTotals(rsvpData);
-  }
+  
+    const selectedCheckBoxes = document.querySelectorAll('.delete-checkbox:checked');
+    if (selectedCheckBoxes.length > 0) {
+      console.log('Selected guests for deletion:', selectedCheckBoxes);
+    }
+  }  
 
   collectRsvpData() {
     // Extract data from relevant DOM elements
@@ -113,30 +115,51 @@ class RsvpManager {
 
   populateTable(rsvpData, tableId) {
     const tableBody = document.getElementById(`${tableId}-body`);
-    const tableRow = document.createElement("tr");
+    const tableRow = document.createElement('tr');
+    const cellColor = rsvpData.rsvpStatus === 'Yes' ? 'green' : 'gray';  
+  
+    let rsvpDate = rsvpData.rsvpDate;
+    if (rsvpDate) {
+      // Ensure rsvpDate is a Date object
+      if (!(rsvpDate instanceof Date)) {
+        rsvpDate = new Date(rsvpDate);
+      }
+      // Format the date as 'dd mm yyyy'
+      const day = String(rsvpDate.getDate()).padStart(2, '0');
+      const month = String(rsvpDate.getMonth() + 1).padStart(2, '0'); // Months are 0-based in JavaScript
+      const year = rsvpDate.getFullYear();
+      rsvpDate = `${day} ${month} ${year}`;
+    }  
 
-    // Create table cells and populate with data
     tableRow.innerHTML = `
-      <td>${rsvpData.guestName}</td>
-      <td>${rsvpData.guestType}</td>
-      <td>${rsvpData.attendingChildren ? "Yes" : "No"}</td>
-      <td>${rsvpData.dietaryRequirements}</td>
-      <td>
-        <input type="checkbox" class="delete-checkbox">
-        <label for="delete-checkbox"></label>
-      </td>
+      <td style="color: ${cellColor}">${rsvpData.rsvpStatus ? "Yes" : "No"}</td>
+      <td style="color: ${cellColor}">${rsvpData.name || ''}</td>
+      <td style="color: ${cellColor}">${rsvpData.type || ''}</td>
+      <td style="color: ${cellColor}">${rsvpData.attendingChildren ? "Yes" : "No"}</td>
+      <td style="color: ${cellColor}">${rsvpData.children || ''}</td>
+      <td style="color: ${cellColor}">${rsvpData.dietaryRequirements || ''}</td>
+      <td style="color: ${cellColor}">${rsvpData.ceremony ? "Yes" : "No"}</td>
+      <td style="color: ${cellColor}">${rsvpData.reception ? "Yes" : "No"}</td>
+      <td style="color: ${cellColor}">${rsvpData.evening ? "Yes" : "No"}</td>
+      <td style="color: ${cellColor}">${rsvpData.rsvpDate || ''}</td> 
+      <td><input type="checkbox" class="delete-checkbox"></td>
     `;
-
     tableBody.appendChild(tableRow);
-
-    // Add click event listener for the label (to simulate checkbox click)
-    tableRow
-      .querySelector(".delete-checkbox + label")
-      .addEventListener("click", () => {
-        this.deleteRsvpEntry(rsvpData, tableId);
-      });
+  
+    tableRow.querySelector(".delete-checkbox").addEventListener("click", function() {
+      // Check if RSVP status is 'Yes'
+      const rsvpStatusCell = this.parentNode.parentNode.querySelector('td:first-child');
+      if (rsvpStatusCell.textContent.trim() === 'Yes') {
+        // Ask the user to confirm the deletion
+        const confirmDelete = window.confirm('Are you sure you want to delete this row?');
+        if (confirmDelete) {
+          // Delete the row
+          this.parentNode.parentNode.remove();
+        }
+      }
+    });
   }
-
+  
   clearGuestInput() {
     this.guestNameInput.value = "";
   }
