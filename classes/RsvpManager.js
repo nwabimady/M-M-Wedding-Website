@@ -141,6 +141,7 @@ class RsvpManager {
       <td style="color: ${cellColor}">${rsvpData.ceremony ? "Yes" : "No"}</td>
       <td style="color: ${cellColor}">${rsvpData.reception ? "Yes" : "No"}</td>
       <td style="color: ${cellColor}">${rsvpData.evening ? "Yes" : "No"}</td>
+      <td style="color: ${cellColor}">${rsvpData.email || ''}</td>
       <td style="color: ${cellColor}">${rsvpData.rsvpDate || ''}</td> 
       <td><input type="checkbox" class="delete-checkbox"></td>
     `;

@@ -151,43 +151,43 @@ button:hover {
 .rsvp-table {
     display: flexbox;
     border-collapse: collapse;
-    width: 100%; /* Adjust width as needed */
+    width: 100%;
     margin-bottom: 1rem;
   }
   
   .rsvp-table th,
   .rsvp-table td {
-    /* Header and cell styles */
+    
     padding: 0.5rem 1rem;
     border: 1px solid #ddd;
-    text-align: left; /* Adjust alignment as needed */
+    text-align: left;
   }
   
   .rsvp-table thead th {
-    /* Header row styles */
+  
     background-color: #f2f2f2;
   }
   .rsvp-table tbody {
-    background-color: #f2f2f2; /* Adjust the color as needed */
+    background-color: #f2f2f2; 
   }
   
-  .rsvp-table tbody.example-row { /* Target example rows specifically */
-    background-color: #e0e0e0; /* Lighter grey for example rows */
+  .rsvp-table tbody.example-row { 
+    background-color: #e0e0e0; 
     color: grey;
 }
   .rsvp-table tbody td:last-child {
-    position: relative; /* Enable positioning for checkbox */
+    position: relative;
   }
   
   .rsvp-table tbody td:last-child input[type="checkbox"] {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center checkbox within cell */
+    transform: translate(-50%, -50%); 
   }
   
   .rsvp-table tbody td:last-child input[type="checkbox"]:checked + label {
-    background-color: red; /* Change background color on check */
+    background-color: red; 
   }
   
   .rsvp-table tbody td:last-child label {
@@ -196,6 +196,16 @@ button:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    cursor: pointer; /* Indicate clickable area */
+    cursor: pointer;
   }
-  
+  .scrollable-table {
+    overflow-y: auto;
+    height: 50rem;
+}
+
+.scrollable-table thead tr {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    z-index: 1;
+}

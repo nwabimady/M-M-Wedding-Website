@@ -237,7 +237,7 @@
       <div class="alice-regular">
         <p style="font-size: xx-large">RSVP List Table:</p>
       </div>
-    
+      <div div class="scrollable-table">
       <input type="hidden" id="guest-types" value="All Day,Ceremony,Evening">
       <table id="rsvp-table" class="rsvp-table">
         <thead>
@@ -250,7 +250,8 @@
             <th>Dietary Requirements</th>
             <th>Ceremony</th>
             <th>Reception</th>
-            <th>Evening</th>      
+            <th>Evening</th>
+            <th>Email</th>       
             <th>RSVP Date</th>
             <th> <button id="delete-guests" class="delete-guests">Delete Guest</button></th> </tr>
         </thead>
@@ -265,11 +266,12 @@
             <td>Yes/No</td>
             <td>Yes/No</td>
             <td>Yes/No</td>
+            <td>xxx@xxx.xxx</td>
             <td>dd/mm/yyyy</td>
             <td><input type="checkbox" style="display: block"></td> </tr>
         </tbody>
       </table>
-    
+    </div>
       <div id="totals">
         <h2 class="alice-regular" style="font-size: x-large;">Totals</h2>
         <p class="alice-regular">Families: <span id="total-guests">0</span></p>
