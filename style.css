@@ -54,7 +54,7 @@ footer {
       align-items: center;
     }
     #thanks {
-      display: flex;
+      display: flexbox;
       justify-content: center; 
       align-items: center; 
     }
