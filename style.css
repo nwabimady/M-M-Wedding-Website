@@ -1,5 +1,10 @@
 @import url('https://fonts.cdnfonts.com/css/brittany-signature');
 
+html {
+  display: grid;
+  flex-direction: column;
+}
+
 body {
     display: flexbox;
     min-height: 100vh;
@@ -15,9 +20,6 @@ body {
 footer {
   margin-top: auto;
   position:relative;
-  left: 0;
-  right: 0;
-  bottom: 0;
   text-align: center;
   font-family: "Alice", serif;
   color: #e1c340;
@@ -49,6 +51,7 @@ footer {
       height: 810px;
       margin: 1rem;
       align-items: center;
+      justify-content: space-between;
     }
 }
 
@@ -227,4 +230,11 @@ button:hover {
     top: 0;
     background-color: #fff;
     z-index: 1;
+}
+#thanks {
+  display: flex;
+  margin-top: 25rem;
+  height: 100vh;
+  justify-content: center; 
+    align-items: center; 
 }
