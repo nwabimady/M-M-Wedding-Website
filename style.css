@@ -232,9 +232,8 @@ button:hover {
     z-index: 1;
 }
 #thanks {
-  display: flex;
-  margin-top: 25rem;
-  height: 100vh;
+  display: flexbox;
+  margin: 25rem;
   justify-content: center; 
     align-items: center; 
 }
