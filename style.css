@@ -64,7 +64,9 @@ h1 {
     font-size: 3em;
     margin-bottom: 20px;
     text-shadow: 1px 1px 1px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66);
-}
+    padding: 1rem;
+    margin: 1rem;
+  }
 
 h2 {
     font-family: 'Brittany Signature', sans-serif;
@@ -72,14 +74,17 @@ h2 {
     font-size: 2em;
     margin-bottom: 20px;
     text-shadow: 1px 1px 1px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66);
-}
+    padding: 1rem;
+    margin: 1rem;
+  }
 h3 {
     font-family: 'Brittany Signature', sans-serif;
     color: #E1C340;
     font-size: 1.5em;
     margin-bottom: 20px;
     text-shadow: 1px 1px 1px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66);
-}
+    margin: 1rem;
+  }
 
 .alice-regular {
     font-family: "Alice", serif;
@@ -88,7 +93,10 @@ h3 {
     color: #E1C340;
     margin-bottom: 20px;
     text-shadow: 1px 1px 1px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66);
-}
+    flex: auto;
+    padding: 1rem;
+    margin: 1rem;
+  }
 
 #guest-name {
     padding: 10px;
