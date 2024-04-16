@@ -3,6 +3,7 @@ import FindChildren from "./classes/FindChildren";
 import GuestManager from "./classes/GuestManager";
 import RsvpManager from "./classes/RsvpManager";
 
+
 const guestListInput = document.getElementById('guest-name');
 const guestListUl = document.getElementById('guest-list');
 const submitButton = document.getElementById('submit-button');
