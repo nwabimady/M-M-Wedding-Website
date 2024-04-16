@@ -29,7 +29,6 @@ body {
     }
 
     body {
-        background-color: rgba(13, 21, 66);
         background-image: linear-gradient(rgba(13, 21, 66, 0.3), rgba(13, 21, 66, 0.6)), url("./Teal.png");
     }
     
@@ -38,6 +37,11 @@ body {
         color: #E1C340;
         font-size: 3em;
         margin-bottom: 20px;
+    }
+    iframe {
+      width: 375px;
+      height: 810px;
+      margin: 1rem;
     }
 }
 
