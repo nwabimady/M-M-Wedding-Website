@@ -1,23 +1,33 @@
 @import url('https://fonts.cdnfonts.com/css/brittany-signature');
 
 body {
-    display: flex;
+    display: flexbox;
     min-height: 100vh;
     margin: 0;
     justify-content: center; 
     align-items: center; 
-    background-image: url("./Teal.png");
+    background-image: linear-gradient(rgba(13, 21, 66, 0.3), rgba(13, 21, 66, 0.6)), url("./Teal.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    margin: 5rem;
+    padding: auto;
+}
+footer {
+  margin-top: auto;
+  position:relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  font-family: "Alice", serif;
+  color: #e1c340;
 }
 
 .container {
+  flex-direction: column;
+  justify-content:center ;
     text-align: center;
     padding: 20px;
-    background-color: rgba(13, 21, 66, 0.5);
-    border: 0.5px solid #E1C340;
     margin: auto;
 }
 
