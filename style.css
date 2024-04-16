@@ -3,6 +3,14 @@
 html {
   display: grid;
   flex-direction: column;
+  background-image: linear-gradient(rgba(13, 21, 66, 0.3), rgba(13, 21, 66, 0.6)), url("./Teal.png");
+  justify-content: center; 
+  align-items: center; 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: auto;
+
 }
 
 body {
@@ -11,7 +19,6 @@ body {
     margin: 0;
     justify-content: center; 
     align-items: center; 
-    background-image: linear-gradient(rgba(13, 21, 66, 0.3), rgba(13, 21, 66, 0.6)), url("./Teal.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -33,13 +40,7 @@ footer {
     margin: auto;
 }
 
-@media (max-width: 768px) {
-    .container {
-        background-color: transparent;
-        border: none;
-        margin: 0;
-    }
-    
+@media (max-width: 768px) {    
     h1 {
         font-family: 'Brittany Signature', sans-serif;
         color: #E1C340;
@@ -51,7 +52,6 @@ footer {
       height: 810px;
       margin: 1rem;
       align-items: center;
-      justify-content: space-between;
     }
 }
 
