@@ -107,17 +107,22 @@ h3 {
     text-shadow: 1px 1px 1px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66);
     margin: 1rem;
   }
+h4 {
+  font-family: "Alice", serif;
+    font-weight: 400;
+    color: #E1C340;
+    text-shadow: 1px 1px 1px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66);
+    flex: auto;
+    
+}
 
 .alice-regular {
     font-family: "Alice", serif;
     font-weight: 400;
     font-style: normal;
     color: #E1C340;
-    margin-bottom: 20px;
     text-shadow: 1px 1px 1px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66), 0 0 5px rgba(13, 21, 66);
     flex: auto;
-    padding: 1rem;
-    margin: 1rem;
   }
 
 #guest-name {
