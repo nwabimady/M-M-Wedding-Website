@@ -141,15 +141,15 @@ h4 {
     font-family: "Alice", serif;
     color: #7e723c;
     list-style: none;
-    padding: 10px;
-    margin: 0;
+    padding: 0;
+    margin-bottom: 2rem;
   }
   
-  #guest-list li {
+  #guest-list p {
     margin-bottom: 5px;
   }
   
-  #guest-list li:hover { 
+  #guest-list p:hover { 
     color: #E1C340;
     cursor: pointer;
   }

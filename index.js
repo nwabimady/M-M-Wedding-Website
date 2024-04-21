@@ -32,11 +32,11 @@ guestListInput.addEventListener('keyup', function(e) {
 
   // Only show dropdown if at least 3 characters are typed
   if (searchTerm.length >= 3 && filteredGuests.length > 0) {
-    const suggestionList = document.createElement('ul');
+    const suggestionList = document.createElement('div');
     suggestionList.classList.add('guest-list'); // Add the CSS class 'guest-list'
 
     filteredGuests.forEach(guest => {
-      const suggestionItem = document.createElement('li');
+      const suggestionItem = document.createElement('p');
       suggestionItem.textContent = guest.name;
       suggestionItem.addEventListener('click', function() {
         guestListInput.value = this.textContent;
@@ -46,7 +46,7 @@ guestListInput.addEventListener('keyup', function(e) {
     });
     guestListUl.appendChild(suggestionList);
   } else {
-    guestListUl.textContent = searchTerm.length < 3 ? 'Type at least 3 characters' : 'No matches found.';
+    guestListUl.textContent = searchTerm.length < 3 ? 'Type at least 3 characters. Select your name from the list below.' : 'No matches found.';
   }
 });
 
@@ -226,7 +226,7 @@ submitButton.addEventListener('click', function() {
   }
 });
 
-class InvitationThanks {
+/* class InvitationThanks {
   constructor(allGuests) {
     this.allGuests = allGuests;
     this.thanksDiv = document.getElementById("thanks");
@@ -249,7 +249,7 @@ class InvitationThanks {
     this.otherDivs.forEach((div) => (div.style.display = "none"));
   }
 }
-new InvitationThanks();
+new InvitationThanks(); */
 
 
 class RsvpManager {
@@ -358,3 +358,15 @@ class RsvpManager {
   }  
 }
 new RsvpManager();
+
+function scrollToTop() {
+  document.getElementById("submit-button").addEventListener("click", function() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+}
+
+scrollToTop();
+
