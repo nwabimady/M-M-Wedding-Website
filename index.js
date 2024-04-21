@@ -63,7 +63,7 @@ guestListInput.addEventListener('keydown', function(e) {
       currentFocus--;
       setActiveSuggestion(currentFocus);
     } else if (keyCode === 13) { // Enter key
-      const selectedSuggestion = suggestionList.querySelector('li.active');
+      const selectedSuggestion = suggestionList.querySelector('p.active');
       if (selectedSuggestion) {
         guestListInput.value = selectedSuggestion.textContent;
         currentFocus = 0;
@@ -75,7 +75,7 @@ guestListInput.addEventListener('keydown', function(e) {
 
 function setActiveSuggestion(suggestionIndex) {
   const suggestionList = document.getElementById("suggestions");
-  const suggestions = suggestionList.querySelectorAll('li');
+  const suggestions = suggestionList.querySelectorAll('p');
   if (!suggestions) return;
 
   removeActiveClass(suggestions);

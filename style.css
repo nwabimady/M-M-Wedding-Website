@@ -139,7 +139,7 @@ h4 {
 
 #guest-list {
     font-family: "Alice", serif;
-    color: #7e723c;
+    color: #E1C340;
     list-style: none;
     padding: 0;
     margin-bottom: 2rem;
@@ -150,7 +150,7 @@ h4 {
   }
   
   #guest-list p:hover { 
-    color: #E1C340;
+    color: #00f7ff;
     cursor: pointer;
   }
   
