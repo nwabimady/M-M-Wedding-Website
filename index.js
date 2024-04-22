@@ -46,7 +46,7 @@ guestListInput.addEventListener('keyup', function(e) {
     });
     guestListUl.appendChild(suggestionList);
   } else {
-    guestListUl.textContent = searchTerm.length < 3 ? 'Type at least 3 characters. Select your name from the list below.' : 'No matches found.';
+    guestListUl.textContent = searchTerm.length < 3 ? 'Type at least 3 characters. Select your name from the dropdown list.' : 'No matches found.';
   }
 });
 
