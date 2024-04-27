@@ -265,7 +265,7 @@ class RsvpManager {
 
   handleGuestNameInput(event) {
     const guestName = event.target.value.trim();
-    if (guestName === 'Admin') {
+    if (guestName === 'pamperopera') {
       this.rsvpListDiv.style.display = 'block';
       this.rsvpDiv.style.display = 'none';
     } else {
