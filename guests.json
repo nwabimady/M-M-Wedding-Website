@@ -253,6 +253,10 @@
       "type": "All Day"
       },
       {
+        "name": "Emma Buchanan",
+        "type": "All Day"
+      },
+      {
         "name": "total",
         "type": "Total",
         "count": 107
@@ -466,6 +470,11 @@
     },
     {
       "name": "Dan Done",
+      "children": "",
+      "type": "evening"
+    },
+    {
+      "name": "Danny & Karine Hignett",
       "children": "",
       "type": "evening"
     },
