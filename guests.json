@@ -257,6 +257,18 @@
         "type": "All Day"
       },
       {
+        "name": "Rosanna Ripamonti",
+        "type": "All Day"
+      },
+      {
+        "name": "Clemie & Linda Hill",
+        "type": "All Day"
+      },
+      {
+        "name": "Fernando & Christine Bregantin",
+        "type": "All Day"
+      },
+      {
         "name": "total",
         "type": "Total",
         "count": 107
@@ -475,6 +487,21 @@
     },
     {
       "name": "Danny & Karine Hignett",
+      "children": "",
+      "type": "evening"
+    },
+    {
+      "name": "Jannet & Stuart Nelson",
+      "children": "",
+      "type": "evening"
+    },
+    {
+      "name": "David & Jennifer Greaves",
+      "children": "",
+      "type": "evening"
+    },
+    {
+      "name": "Danielle & Dean McCan",
       "children": "",
       "type": "evening"
     },
