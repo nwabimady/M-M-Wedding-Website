@@ -269,6 +269,10 @@
         "type": "All Day"
       },
       {
+        "name": "c",
+        "type": "All Day"
+      },
+      {
         "name": "total",
         "type": "Total",
         "count": 107
