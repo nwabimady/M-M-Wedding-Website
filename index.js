@@ -359,6 +359,19 @@ class RsvpManager {
 }
 new RsvpManager();
 
+document.querySelectorAll('.bankDetails').forEach(function(button) {
+  button.addEventListener('click', function() {
+      var details = this.querySelector('.bank-details');
+      if (details.style.maxHeight !== '0px') {
+          details.style.maxHeight = '0px';
+          details.style.opacity = '0';
+      } else {
+          details.style.maxHeight = details.scrollHeight + 'px';
+          details.style.opacity = '1';
+      }
+  });
+});
+
 function scrollToTop() {
   document.getElementById("submit-button").addEventListener("click", function() {
     window.scrollTo({
@@ -369,4 +382,3 @@ function scrollToTop() {
 }
 
 scrollToTop();
-

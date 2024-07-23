@@ -256,3 +256,9 @@ button:hover {
   justify-content: center; 
     align-items: center; 
 }
+.bank-details {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s, max-height 0.5s;
+}
