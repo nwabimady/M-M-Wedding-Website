@@ -262,3 +262,8 @@ button:hover {
   overflow: hidden;
   transition: opacity 0.5s, max-height 0.5s;
 }
+.bankDetails:hover h3 {
+  color: #00d9ff;
+  transition: 0.5s;
+
+}
